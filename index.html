@@ -3,88 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ArtiFace — Connecter artisans & fournisseurs</title>
+  <title>ArtiFace — Le réseau mondial des artisans et fournisseurs</title>
   <style>
     :root{
-      --blue:#1e88e5;   /* bleu ArtiFace */
-      --green:#2eae6f;  /* vert ArtiFace */
-      --text:#111827;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --bg:#f7f7fb;
+      --blue:#1e88e5;    /* couleur d'action */
+      --text:#111111;    /* noir titre */
+      --muted:#5b6370;   /* texte secondaire */
+      --card:#ffffff;    /* fond pur */
+      --line:#e6e6e6;    /* bordures légères */
+      --radius:14px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text); background:var(--bg);
+      margin:0; background:#fff; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1080px; margin:0 auto; padding:24px 16px}
     header{
-      background:#fff; border-bottom:1px solid #e5e7eb;
-      padding:14px 18px; display:flex; align-items:center; justify-content:center;
-      position:sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--line);
     }
-    .logo{
-      display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px;
-      color:var(--blue);
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0;
     }
-    .logo img{ height:32px; width:auto; display:block }
-    .logo b{ color:var(--blue) }
-    .logo span{ color:var(--green) }
-    .container{ max-width:980px; margin:0 auto; padding:24px 16px }
-    .hero{ text-align:center; padding:24px 0 10px }
+    .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:20px}
+    .logo img{height:32px; width:auto; display:block}
+    .lang{
+      display:flex; align-items:center; gap:8px;
+      font-size:14px; color:#444;
+    }
+    .lang select{
+      border:1px solid var(--line); border-radius:10px; padding:8px 10px; background:#fff;
+    }
+
+    .hero{ text-align:center; padding:34px 0 18px }
     .hero h1{
-      margin:0 0 10px; font-size:28px; line-height:1.15; font-weight:800;
+      margin:0 0 12px; font-size:34px; line-height:1.15; font-weight:800; color:var(--text);
+      word-break:normal; hyphens:none; letter-spacing:-0.2px;
     }
-    .hero h1 .blue{ color:var(--blue) }
-    .hero h1 .green{ color:var(--green) }
-    .hero p{ color:var(--muted); margin:0 auto 16px; max-width:680px }
-    .cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px }
+    @media(min-width:720px){ .hero h1{ font-size:44px } }
+    .hero p{
+      margin:0 auto 18px; max-width:720px; color:var(--muted); font-size:16px; line-height:1.6;
+    }
+    .cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px }
     .btn{
-      appearance:none; border:none; border-radius:10px; padding:12px 18px;
-      font-weight:600; font-size:16px; cursor:pointer;
+      appearance:none; border:none; border-radius:12px; padding:12px 18px;
+      font-weight:700; font-size:16px; cursor:pointer;
     }
     .primary{ background:var(--blue); color:#fff }
-    .secondary{ background:#fff; color:var(--blue); border:2px solid var(--blue) }
-    .grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:22px }
-    @media(min-width:720px){ .grid{ grid-template-columns:1fr 1fr } }
-    .card{
-      background:var(--card); border:1px solid #e5e7eb; border-radius:14px;
-      padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);
+    .outline{
+      background:#fff; color:var(--blue); border:2px solid var(--blue)
     }
-    .who{ font-weight:700; margin-top:8px }
+
+    .grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:22px }
+    @media(min-width:860px){ .grid{ grid-template-columns:1fr 1fr 1fr } }
+
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.03);
+    }
+    .who{ font-weight:800; margin-top:10px }
     .stars{ color:#f59e0b; letter-spacing:2px }
-    footer{ text-align:center; color:#9ca3af; font-size:13px; padding:32px 0 }
+
+    footer{ text-align:center; color:#8a8f98; font-size:13px; padding:32px 0 }
   </style>
 </head>
 <body>
-  <!-- Barre avec le logo -->
+  <!-- En-tête (fond blanc pur) -->
   <header>
-    <div class="logo">
-      <!-- Remplacera le texte par l'image quand on ajoutera logo.png à l'étape suivante -->
-      <img src="logo.png" alt="ArtiFace" onerror="this.style.display='none'">
-      <div><b>Arti</b><span>Face</span></div>
+    <div class="container topbar">
+      <div class="logo">
+        <!-- Quand logo.png sera présent dans le dépôt, l'image s’affichera. -->
+        <img src="logo.png" alt="ArtiFace" onerror="this.style.display='none'">
+        <div>ArtiFace</div>
+      </div>
+
+      <!-- FR par défaut + sélecteur de langue (placeholder pour l’instant) -->
+      <div class="lang">
+        <span>Langue</span>
+        <select aria-label="Choisir la langue" onchange="location.search='?lang='+this.value">
+          <option value="fr" selected>Français</option>
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+        </select>
+      </div>
     </div>
   </header>
 
-  <!-- Section héro -->
+  <!-- Héros -->
   <main class="container">
     <section class="hero">
-      <h1>
-        Connecter les <span class="blue">artisans</span> et les
-        <span class="green">fournisseurs</span> au monde
-      </h1>
+      <h1>Connecter les artisans et les fournisseurs au monde</h1>
       <p>
         Rejoignez notre plateforme pour exposer vos talents, trouver des clients,
         collaborer avec des fournisseurs et faire grandir votre activité.
       </p>
       <div class="cta">
         <a href="#" class="btn primary">S’inscrire</a>
-        <a href="#" class="btn secondary">Se connecter</a>
+        <a href="#" class="btn outline">Se connecter</a>
       </div>
     </section>
 
-    <!-- Témoignages (2 cartes) -->
-    <section class="grid">
+    <!-- 3 témoignages -->
+    <section class="grid" aria-label="Témoignages">
       <article class="card">
         <p>“J’ai pu développer mon activité artisanale grâce à ArtiFace.
         Très simple à utiliser !”</p>
@@ -96,6 +119,13 @@
         <p>“Des fournisseurs fiables et des clients sérieux — ArtiFace
         m’a permis de multiplier mes commandes.”</p>
         <div class="who">Ali K.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+
+      <article class="card">
+        <p>“La visibilité est incroyable et les échanges sont rapides.
+        Je recommande ArtiFace à tous les artisans.”</p>
+        <div class="who">James S.</div>
         <div class="stars">★★★★★</div>
       </article>
     </section>
