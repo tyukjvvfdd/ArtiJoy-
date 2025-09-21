@@ -46,7 +46,7 @@
         <select aria-label="Choisir la langue" id="lang-select">
           <option value="fr" selected>Français</option>
           <option value="en">English</option>
-          <!-- On ajoutera ES / PT / AR / ZH plus tard -->
+          <!-- On ajoutera ES / PT / AR / ZH ensuite -->
         </select>
       </div>
     </div>
@@ -91,23 +91,16 @@
     // année dynamique
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // langue: EN via JSON, FR = texte par défaut
+    // FR = texte par défaut. EN = chargé depuis /public/locales/en.json
     const select = document.getElementById('lang-select');
 
     async function changeLanguage(lang) {
-      if (lang === 'fr') {
-        // Recharge la page pour revenir au texte FR d’origine
-        location.reload();
-        return;
-      }
+      if (lang === 'fr') { location.reload(); return; }
       try {
         const res = await fetch('./public/locales/' + lang + '.json');
         const t = await res.json();
 
-        // (optionnel) on change juste le libellé "Langue" si dispo
         if (t["nav.language"]) document.getElementById('label-language').textContent = t["nav.language"];
-
-        // CTA + hero + témoignages + footer
         if (t["hero.title"]) document.getElementById('hero-title').textContent = t["hero.title"];
         if (t["hero.tagline"]) document.getElementById('hero-tagline').textContent = t["hero.tagline"];
         if (t["cta.signup"]) document.getElementById('cta-signup').textContent = t["cta.signup"];
