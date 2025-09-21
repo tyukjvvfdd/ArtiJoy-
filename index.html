@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ArtiFace — A rede global de artesãos e fornecedores</title>
+  <title>ArtiFace — Le réseau mondial des artisans et fournisseurs</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--blue:#1e88e5;--text:#111111;--muted:#5b6370;--card:#ffffff;--line:#e6e6e6;--radius:12px}
@@ -43,11 +43,11 @@
         <div>ArtiFace</div>
       </div>
       <div class="lang">
-        <span>Idioma</span>
-        <select aria-label="Escolher idioma" onchange="location.href=this.value">
-          <option value="index.html">Français</option>
+        <span>Langue</span>
+        <select aria-label="Choisir la langue" onchange="location.href=this.value">
+          <option value="index.html" selected>Français</option>
           <option value="index.en.html">English</option>
-          <option value="index.pt.html" selected>Português</option>
+          <option value="index.pt.html">Português</option>
         </select>
       </div>
     </div>
@@ -55,39 +55,38 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Conectar artesãos e fornecedores ao mundo</h1>
-      <p>Junte-se à nossa plataforma para mostrar seus talentos, encontrar clientes,
-        colaborar com fornecedores e fazer o seu negócio crescer.</p>
+      <h1>Connecter les artisans et les fournisseurs au monde</h1>
+      <p>Rejoignez notre plateforme pour montrer vos talents, trouver des clients,
+        collaborer avec des fournisseurs et faire grandir votre activité.</p>
       <div class="cta">
-        <a href="#" class="btn primary">Criar conta</a>
-        <a href="#" class="btn outline">Entrar</a>
+        <a href="#" class="btn primary">Créer un compte</a>
+        <a href="#" class="btn outline">Se connecter</a>
       </div>
     </section>
 
-    <section class="grid" aria-label="Depoimentos">
+    <section class="grid" aria-label="Témoignages">
       <article class="card">
-        <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=128&h=128&fit=crop&crop=faces" alt="Amina D.">
-        <p>“Consegui desenvolver meu negócio artesanal graças ao ArtiFace. Muito fácil de usar!”</p>
+        <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Amina D.">
+        <p>« J’ai pu développer mon activité artisanale grâce à ArtiFace. Très facile à utiliser ! »</p>
         <div class="who">Amina D.</div>
         <div class="stars">★★★★★</div>
       </article>
       <article class="card">
-        <!-- ✅ nouvelle photo corrigée -->
-        <img class="avatar" src="https://images.unsplash.com/photo-1603079842239-3e8b1b1c5a6b?w=128&h=128&fit=crop&crop=faces" alt="Lucas M.">
-        <p>“Fornecedores confiáveis e clientes sérios — o ArtiFace me ajudou a multiplicar meus pedidos.”</p>
+        <!-- ✅ Image du milieu corrigée (portrait fiable Unsplash) -->
+        <img class="avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Lucas M.">
+        <p>« Des fournisseurs fiables et des clients sérieux — ArtiFace m’a aidé à multiplier mes commandes. »</p>
         <div class="who">Lucas M.</div>
         <div class="stars">★★★★★</div>
       </article>
       <article class="card">
-        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=128&h=128&fit=crop&crop=faces" alt="Olivia R.">
-        <p>“Visibilidade incrível e trocas rápidas. Recomendo o ArtiFace a todos os artesãos.”</p>
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Olivia R.">
+        <p>« Visibilité incroyable et échanges rapides. Je recommande ArtiFace à tous les artisans. »</p>
         <div class="who">Olivia R.</div>
         <div class="stars">★★★★★</div>
       </article>
     </section>
   </main>
 
-  <footer>© <span id="y"></span> ArtiFace — A rede global de artesãos e fornecedores</footer>
+  <footer>© <span id="y"></span> ArtiFace — Le réseau mondial des artisans et fournisseurs</footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body>
-</html>
+</
