@@ -12,17 +12,14 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1080px;margin:0 auto;padding:20px 12px}
     header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0} /* ↓ header un peu plus compact */
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
     .logo{display:flex;align-items:center;gap:10px}
-    .logo img{height:80px;width:auto;display:block} /* Logo agrandi conservé */
+    .logo img{height:80px;width:auto;display:block}
     .lang{display:flex;align-items:center;gap:8px;font-size:14px;color:#444}
     .lang select{border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff}
-    .hero{text-align:center;padding:10px 0 14px} /* ↓ moins d’espace sous le logo */
+    .hero{text-align:center;padding:10px 0 14px}
     .hero h1{margin:0 0 12px;font-size:32px;line-height:1.15;font-weight:800;color:var(--text);letter-spacing:-0.4px}
-    @media(min-width:720px){
-      .hero{padding:12px 0 16px} /* un peu d’air sur desktop */
-      .hero h1{font-size:46px}
-    }
+    @media(min-width:720px){.hero{padding:12px 0 16px}.hero h1{font-size:46px}}
     .hero p{margin:0 auto 16px;max-width:720px;color:var(--muted);font-size:15px;line-height:1.6}
     .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
     .btn{appearance:none;border:none;border-radius:12px;padding:11px 16px;font-weight:700;font-size:15px;cursor:pointer}
@@ -42,15 +39,14 @@
   <header>
     <div class="container topbar">
       <div class="logo">
-        <!-- ✅ Logo officiel intégré -->
         <img src="logo-artiface.png" alt="ArtiFace">
       </div>
       <div class="lang">
-        <span>Langue</span>
-        <select aria-label="Choisir la langue" onchange="location.href=this.value">
-          <option value="index.html" selected>Français</option>
-          <option value="index.en.html">English</option>
-          <option value="index.pt.html">Português</option>
+        <span id="label-language">Langue</span>
+        <select aria-label="Choisir la langue" id="lang-select">
+          <option value="fr" selected>Français</option>
+          <option value="en">English</option>
+          <!-- On ajoutera ES / PT / AR / ZH plus tard -->
         </select>
       </div>
     </div>
@@ -58,38 +54,77 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Connecter les artisans et les fournisseurs au monde</h1>
-      <p>Rejoignez notre plateforme pour montrer vos talents, trouver des clients,
+      <h1 id="hero-title">Connecter les artisans et les fournisseurs au monde</h1>
+      <p id="hero-tagline">Rejoignez notre plateforme pour montrer vos talents, trouver des clients,
         collaborer avec des fournisseurs et faire grandir votre activité.</p>
       <div class="cta">
-        <a href="#" class="btn primary">Créer un compte</a>
-        <a href="#" class="btn outline">Se connecter</a>
+        <a href="#" class="btn primary" id="cta-signup">Créer un compte</a>
+        <a href="#" class="btn outline" id="cta-login">Se connecter</a>
       </div>
     </section>
 
     <section class="grid" aria-label="Témoignages">
       <article class="card">
         <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Amina D.">
-        <p>« J’ai pu développer mon activité artisanale grâce à ArtiFace. Très facile à utiliser ! »</p>
-        <div class="who">Amina D.</div>
+        <p id="amina-quote">« J’ai pu développer mon activité artisanale grâce à ArtiFace. Très facile à utiliser ! »</p>
+        <div class="who" id="amina-name">Amina D.</div>
         <div class="stars">★★★★★</div>
       </article>
       <article class="card">
         <img class="avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Lucas M.">
-        <p>« Des fournisseurs fiables et des clients sérieux — ArtiFace m’a aidé à multiplier mes commandes. »</p>
-        <div class="who">Lucas M.</div>
+        <p id="lucas-quote">« Des fournisseurs fiables et des clients sérieux — ArtiFace m’a aidé à multiplier mes commandes. »</p>
+        <div class="who" id="lucas-name">Lucas M.</div>
         <div class="stars">★★★★★</div>
       </article>
       <article class="card">
         <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Olivia R.">
-        <p>« Visibilité incroyable et échanges rapides. Je recommande ArtiFace à tous les artisans. »</p>
-        <div class="who">Olivia R.</div>
+        <p id="olivia-quote">« Visibilité incroyable et échanges rapides. Je recommande ArtiFace à tous les artisans. »</p>
+        <div class="who" id="olivia-name">Olivia R.</div>
         <div class="stars">★★★★★</div>
       </article>
     </section>
   </main>
 
-  <footer>© <span id="y"></span> ArtiFace — Le réseau mondial des artisans et fournisseurs</footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <footer id="footer">© <span id="y"></span> ArtiFace — Le réseau mondial des artisans et fournisseurs</footer>
+
+  <script>
+    // année dynamique
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // langue: EN via JSON, FR = texte par défaut
+    const select = document.getElementById('lang-select');
+
+    async function changeLanguage(lang) {
+      if (lang === 'fr') {
+        // Recharge la page pour revenir au texte FR d’origine
+        location.reload();
+        return;
+      }
+      try {
+        const res = await fetch('./public/locales/' + lang + '.json');
+        const t = await res.json();
+
+        // (optionnel) on change juste le libellé "Langue" si dispo
+        if (t["nav.language"]) document.getElementById('label-language').textContent = t["nav.language"];
+
+        // CTA + hero + témoignages + footer
+        if (t["hero.title"]) document.getElementById('hero-title').textContent = t["hero.title"];
+        if (t["hero.tagline"]) document.getElementById('hero-tagline').textContent = t["hero.tagline"];
+        if (t["cta.signup"]) document.getElementById('cta-signup').textContent = t["cta.signup"];
+        if (t["cta.login"]) document.getElementById('cta-login').textContent = t["cta.login"];
+        if (t["testimonials.amina.quote"]) document.getElementById('amina-quote').textContent = t["testimonials.amina.quote"];
+        if (t["testimonials.amina.name"]) document.getElementById('amina-name').textContent = t["testimonials.amina.name"];
+        if (t["testimonials.lucas.quote"]) document.getElementById('lucas-quote').textContent = t["testimonials.lucas.quote"];
+        if (t["testimonials.lucas.name"]) document.getElementById('lucas-name').textContent = t["testimonials.lucas.name"];
+        if (t["testimonials.olivia.quote"]) document.getElementById('olivia-quote').textContent = t["testimonials.olivia.quote"];
+        if (t["testimonials.olivia.name"]) document.getElementById('olivia-name').textContent = t["testimonials.olivia.name"];
+        if (t["footer"]) document.getElementById('footer').textContent = t["footer"];
+      } catch (e) {
+        console.error('Erreur chargement langue:', e);
+      }
+    }
+
+    select.addEventListener('change', (e) => changeLanguage(e.target.value));
+  </script>
 </body>
 </html>
