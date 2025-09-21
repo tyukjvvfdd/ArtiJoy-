@@ -1,23 +1,93 @@
-<!-- Témoignages (3 colonnes) -->
-<section class="testimonials">
-  <div class="card">
-    <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=128&h=128&fit=crop&crop=faces" alt="Amina D.">
-    <p>“J’ai pu développer mon activité artisanale grâce à ArtiFace. Très simple à utiliser !”</p>
-    <strong>Amina D.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtiFace — A rede global de artesãos e fornecedores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#1e88e5;--text:#111111;--muted:#5b6370;--card:#ffffff;--line:#e6e6e6;--radius:12px}
+    *{box-sizing:border-box}
+    body{margin:0;background:#fff;color:var(--text);font-family:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-0.1px}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1080px;margin:0 auto;padding:20px 12px}
+    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+    .logo img{height:28px;width:auto;display:block}
+    .lang{display:flex;align-items:center;gap:8px;font-size:14px;color:#444}
+    .lang select{border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff}
+    .hero{text-align:center;padding:28px 0 14px}
+    .hero h1{margin:0 0 12px;font-size:32px;line-height:1.15;font-weight:800;color:var(--text);letter-spacing:-0.4px}
+    @media(min-width:720px){.hero h1{font-size:46px}}
+    .hero p{margin:0 auto 16px;max-width:720px;color:var(--muted);font-size:15px;line-height:1.6}
+    .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+    .btn{appearance:none;border:none;border-radius:12px;padding:11px 16px;font-weight:700;font-size:15px;cursor:pointer}
+    .primary{background:var(--blue);color:#fff}.outline{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+    .grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+    @media(min-width:360px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.03);text-align:center}
+    @media(max-width:430px){.card{padding:12px}.hero h1{font-size:28px}.hero p{font-size:14px}}
+    .avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 10px}
+    .card p{font-size:13.5px;line-height:1.5;margin:0 0 8px}
+    .who{font-weight:800;margin-top:4px;font-size:14px}
+    .stars{color:#f59e0b;letter-spacing:2px;font-size:14px}
+    footer{text-align:center;color:#8a8f98;font-size:12.5px;padding:24px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="logo">
+        <img src="logo.png" alt="ArtiFace" onerror="this.style.display='none'">
+        <div>ArtiFace</div>
+      </div>
+      <div class="lang">
+        <span>Idioma</span>
+        <select aria-label="Escolher idioma" onchange="location.href=this.value">
+          <option value="index.html">Français</option>
+          <option value="index.en.html">English</option>
+          <option value="index.pt.html" selected>Português</option>
+        </select>
+      </div>
+    </div>
+  </header>
 
-  <div class="card">
-    <img class="avatar" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=128&h=128&fit=crop&crop=faces" alt="Lucas M.">
-    <p>“Des fournisseurs fiables et des clients sérieux — ArtiFace m’a permis de multiplier mes commandes.”</p>
-    <strong>Lucas M.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
+  <main class="container">
+    <section class="hero">
+      <h1>Conectar artesãos e fornecedores ao mundo</h1>
+      <p>Junte-se à nossa plataforma para mostrar seus talentos, encontrar clientes,
+        colaborar com fornecedores e fazer o seu negócio crescer.</p>
+      <div class="cta">
+        <a href="#" class="btn primary">Criar conta</a>
+        <a href="#" class="btn outline">Entrar</a>
+      </div>
+    </section>
 
-  <div class="card">
-    <img class="avatar" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=128&h=128&fit=crop&crop=faces" alt="Olivia R.">
-    <p>“La visibilité est incroyable et les échanges sont rapides. Je recommande ArtiFace à tous les artisans.”</p>
-    <strong>Olivia R.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
-</section>
+    <section class="grid" aria-label="Depoimentos">
+      <article class="card">
+        <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=128&h=128&fit=crop&crop=faces" alt="Amina D.">
+        <p>“Consegui desenvolver meu negócio artesanal graças ao ArtiFace. Muito fácil de usar!”</p>
+        <div class="who">Amina D.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+      <article class="card">
+        <!-- ✅ nouvelle photo corrigée -->
+        <img class="avatar" src="https://images.unsplash.com/photo-1603079842239-3e8b1b1c5a6b?w=128&h=128&fit=crop&crop=faces" alt="Lucas M.">
+        <p>“Fornecedores confiáveis e clientes sérios — o ArtiFace me ajudou a multiplicar meus pedidos.”</p>
+        <div class="who">Lucas M.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+      <article class="card">
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=128&h=128&fit=crop&crop=faces" alt="Olivia R.">
+        <p>“Visibilidade incrível e trocas rápidas. Recomendo o ArtiFace a todos os artesãos.”</p>
+        <div class="who">Olivia R.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> ArtiFace — A rede global de artesãos e fornecedores</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
