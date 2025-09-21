@@ -13,8 +13,8 @@
     .container{max-width:1080px;margin:0 auto;padding:20px 12px}
     header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
-    .logo img{height:28px;width:auto;display:block}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:40px;width:auto;display:block} /* Logo un peu plus visible */
     .lang{display:flex;align-items:center;gap:8px;font-size:14px;color:#444}
     .lang select{border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff}
     .hero{text-align:center;padding:28px 0 14px}
@@ -39,8 +39,8 @@
   <header>
     <div class="container topbar">
       <div class="logo">
-        <img src="logo.png" alt="ArtiFace" onerror="this.style.display='none'">
-        <div>ArtiFace</div>
+        <!-- ✅ Logo officiel intégré -->
+        <img src="logo-artiface.png" alt="ArtiFace">
       </div>
       <div class="lang">
         <span>Langue</span>
@@ -72,7 +72,6 @@
         <div class="stars">★★★★★</div>
       </article>
       <article class="card">
-        <!-- ✅ Image du milieu corrigée (portrait fiable Unsplash) -->
         <img class="avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=128&h=128&fit=crop&crop=faces&auto=format" alt="Lucas M.">
         <p>« Des fournisseurs fiables et des clients sérieux — ArtiFace m’a aidé à multiplier mes commandes. »</p>
         <div class="who">Lucas M.</div>
@@ -89,4 +88,5 @@
 
   <footer>© <span id="y"></span> ArtiFace — Le réseau mondial des artisans et fournisseurs</footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</
+</body>
+</html>
