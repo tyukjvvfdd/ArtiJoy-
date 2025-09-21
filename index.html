@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>ArtiFace – Vitrine</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtiFace — Connecter artisans & fournisseurs</title>
+  <style>
+    :root{
+      --blue:#1e88e5;   /* bleu ArtiFace */
+      --green:#2eae6f;  /* vert ArtiFace */
+      --text:#111827;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f7f7fb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    header{
+      background:#fff; border-bottom:1px solid #e5e7eb;
+      padding:14px 18px; display:flex; align-items:center; justify-content:center;
+      position:sticky; top:0; z-index:10;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px;
+      color:var(--blue);
+    }
+    .logo img{ height:32px; width:auto; display:block }
+    .logo b{ color:var(--blue) }
+    .logo span{ color:var(--green) }
+    .container{ max-width:980px; margin:0 auto; padding:24px 16px }
+    .hero{ text-align:center; padding:24px 0 10px }
+    .hero h1{
+      margin:0 0 10px; font-size:28px; line-height:1.15; font-weight:800;
+    }
+    .hero h1 .blue{ color:var(--blue) }
+    .hero h1 .green{ color:var(--green) }
+    .hero p{ color:var(--muted); margin:0 auto 16px; max-width:680px }
+    .cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px }
+    .btn{
+      appearance:none; border:none; border-radius:10px; padding:12px 18px;
+      font-weight:600; font-size:16px; cursor:pointer;
+    }
+    .primary{ background:var(--blue); color:#fff }
+    .secondary{ background:#fff; color:var(--blue); border:2px solid var(--blue) }
+    .grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:22px }
+    @media(min-width:720px){ .grid{ grid-template-columns:1fr 1fr } }
+    .card{
+      background:var(--card); border:1px solid #e5e7eb; border-radius:14px;
+      padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);
+    }
+    .who{ font-weight:700; margin-top:8px }
+    .stars{ color:#f59e0b; letter-spacing:2px }
+    footer{ text-align:center; color:#9ca3af; font-size:13px; padding:32px 0 }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur ArtiFace 🌍</h1>
-  <p>Le réseau mondial des artisans.</p>
+  <!-- Barre avec le logo -->
+  <header>
+    <div class="logo">
+      <!-- Remplacera le texte par l'image quand on ajoutera logo.png à l'étape suivante -->
+      <img src="logo.png" alt="ArtiFace" onerror="this.style.display='none'">
+      <div><b>Arti</b><span>Face</span></div>
+    </div>
+  </header>
+
+  <!-- Section héro -->
+  <main class="container">
+    <section class="hero">
+      <h1>
+        Connecter les <span class="blue">artisans</span> et les
+        <span class="green">fournisseurs</span> au monde
+      </h1>
+      <p>
+        Rejoignez notre plateforme pour exposer vos talents, trouver des clients,
+        collaborer avec des fournisseurs et faire grandir votre activité.
+      </p>
+      <div class="cta">
+        <a href="#" class="btn primary">S’inscrire</a>
+        <a href="#" class="btn secondary">Se connecter</a>
+      </div>
+    </section>
+
+    <!-- Témoignages (2 cartes) -->
+    <section class="grid">
+      <article class="card">
+        <p>“J’ai pu développer mon activité artisanale grâce à ArtiFace.
+        Très simple à utiliser !”</p>
+        <div class="who">Emma R.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+
+      <article class="card">
+        <p>“Des fournisseurs fiables et des clients sérieux — ArtiFace
+        m’a permis de multiplier mes commandes.”</p>
+        <div class="who">Ali K.</div>
+        <div class="stars">★★★★★</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> ArtiFace — Le réseau mondial des artisans et fournisseurs</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
