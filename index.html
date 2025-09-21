@@ -12,14 +12,17 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1080px;margin:0 auto;padding:20px 12px}
     header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0} /* ↓ header un peu plus compact */
     .logo{display:flex;align-items:center;gap:10px}
-    .logo img{height:80px;width:auto;display:block} /* ✅ Logo agrandi */
+    .logo img{height:80px;width:auto;display:block} /* Logo agrandi conservé */
     .lang{display:flex;align-items:center;gap:8px;font-size:14px;color:#444}
     .lang select{border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff}
-    .hero{text-align:center;padding:28px 0 14px}
+    .hero{text-align:center;padding:10px 0 14px} /* ↓ moins d’espace sous le logo */
     .hero h1{margin:0 0 12px;font-size:32px;line-height:1.15;font-weight:800;color:var(--text);letter-spacing:-0.4px}
-    @media(min-width:720px){.hero h1{font-size:46px}}
+    @media(min-width:720px){
+      .hero{padding:12px 0 16px} /* un peu d’air sur desktop */
+      .hero h1{font-size:46px}
+    }
     .hero p{margin:0 auto 16px;max-width:720px;color:var(--muted);font-size:15px;line-height:1.6}
     .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
     .btn{appearance:none;border:none;border-radius:12px;padding:11px 16px;font-weight:700;font-size:15px;cursor:pointer}
