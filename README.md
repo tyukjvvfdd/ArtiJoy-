@@ -1,1 +1,1 @@
-# ArtiFace
+# ArtiJoy 
